@@ -1,0 +1,20 @@
+from selenium import webdriver
+
+web = webdriver.Chrome()
+web.get('http://web.ion.ru/WbMartF/CalcF_gview_N.aspx')
+i = 40
+#info = web.find_elements_by_tag_name('tr')
+   # for h in info:
+    #    f.write(h)
+    #i = i + 1
+while i != 88:
+    if i == 41:
+        drop_link = web.find_element_by_link_text(str('...'))
+        drop_link.click()
+    elif i == 81:
+        drop_link = web.find_element_by_xpath('//*[@id="GV_01"]/tbody/tr[21]/td/table/tbody/tr/td[42]/a')
+        drop_link.click()
+    else:
+        link = web.find_element_by_link_text(str(i))
+        link.click()
+    i = i + 1
